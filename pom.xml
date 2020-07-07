@@ -19,10 +19,10 @@
         <version>21</version>
     </parent>
 
-    <groupId>ai.platon</groupId>
+    <groupId>ai.platon.pulsar</groupId>
     <artifactId>platon</artifactId>
     <name>Platon</name>
-    <version>2</version>
+    <version>3</version>
     <packaging>pom</packaging>
 
     <description/>
@@ -46,6 +46,7 @@
             <name>Vincent Zhang</name>
             <email>ivincent.zhang@gmail.com</email>
             <organization>platon.ai</organization>
+            <timezone>+8</timezone>
         </developer>
     </developers>
 
@@ -55,9 +56,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/platonai/pulsar.git</connection>
-        <developerConnection>scm:git:https://github.com/platonai/pulsar.git</developerConnection>
-        <url>https://github.com/platonai/pulsar.git</url>
+        <connection>scm:git:https://github.com/platonai/platon.git</connection>
+        <developerConnection>scm:git:https://github.com/platonai/platon.git</developerConnection>
+        <url>https://github.com/platonai/platon.git</url>
     </scm>
 
     <distributionManagement>
