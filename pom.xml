@@ -19,9 +19,9 @@
         <version>21</version>
     </parent>
 
-    <groupId>ai.platon.pulsar</groupId>
+    <groupId>ai.platon</groupId>
     <artifactId>platon</artifactId>
-    <name>Platon</name>
+    <name>Platon AI</name>
     <version>3</version>
     <packaging>pom</packaging>
 
