@@ -857,7 +857,7 @@
                   -->
         <gora.version>0.8</gora.version>
         <!--  HTML parsing  -->
-        <xerces.version>2.9.1</xerces.version>
+        <xerces.version>2.12.0</xerces.version>
         <nekohtml.version>1.9.19</nekohtml.version>
         <!-- <tika.version>[1.19.1,)</tika.version> -->
         <tika.version>1.22</tika.version>
