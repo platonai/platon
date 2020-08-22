@@ -10,17 +10,25 @@
     language governing permissions and limitations under the License.  -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- From apache: "Most projects will want to override some of these settings." -->
+    <!-- see http://maven.apache.org/pom/asf/ -->
     <parent>
         <groupId>org.apache</groupId>
         <artifactId>apache</artifactId>
         <version>21</version>
     </parent>
+
     <groupId>ai.platon</groupId>
     <artifactId>platon</artifactId>
     <name>Platon AI</name>
     <version>3.2-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <description/>
+
+    <description>
+        This project consists of a POM that contains settings that are likely to be useful to any Platon project
+    </description>
+
     <url>http://platon.ai</url>
     <inceptionYear>2014</inceptionYear>
     <licenses>
@@ -60,6 +68,7 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
     <build>
         <defaultGoal>install</defaultGoal>
         <directory>target</directory>
@@ -181,16 +190,21 @@
                         </filesets>
                     </configuration>
                 </plugin>
-                <!--                 <plugin> -->
-                <!--                     <groupId>org.codehaus.mojo</groupId> -->
-                <!--                     <artifactId>exec-maven-plugin</artifactId> -->
-                <!--                     <version>${maven-exec-plugin.version}</version> -->
-                <!--                 </plugin> -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>${maven-exec-plugin.version}</version>
+                </plugin>
                 <!--                 <plugin> -->
                 <!--                     <groupId>org.eclipse.jetty</groupId> -->
                 <!--                     <artifactId>jetty-maven-plugin</artifactId> -->
                 <!--                     <version>${jetty-maven-plugin.version}</version> -->
                 <!--                 </plugin> -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -199,6 +213,7 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
         <plugins>
             <!--  kotlin plugin should come before maven-compiler-plugin  -->
             <plugin>
@@ -207,6 +222,16 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <!-- apache-release is enabled by default in maven-apache-parent -->
+            <!-- see http://maven.apache.org/pom/asf/ -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <!-- <arguments>-Papache-release ${arguments}</arguments>-->
+                    <arguments/>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -414,8 +439,8 @@
                     </exclusion>
                     <exclusion>
                         <!--  conflict with hibernate
-                                                org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.resolveClassLoadingStrategy(ByteBuddyState.java:229)
-                                                 -->
+                        org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.resolveClassLoadingStrategy(ByteBuddyState.java:229)
+                         -->
                         <groupId>net.bytebuddy</groupId>
                         <artifactId>byte-buddy</artifactId>
                     </exclusion>
