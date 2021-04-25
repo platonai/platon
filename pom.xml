@@ -999,9 +999,15 @@
             <!--  Net  -->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>4.3.6</version>
+                <artifactId>httpcore</artifactId>
+                <version>4.4.3</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.1</version>
+            </dependency>
+
             <dependency>
                 <groupId>javax.websocket</groupId>
                 <artifactId>javax.websocket-api</artifactId>
@@ -1142,7 +1148,6 @@
             <artifactId>kotlin-stdlib</artifactId>
         </dependency>
     </dependencies>
-
 
     <properties>
         <!--  General properties  -->
