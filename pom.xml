@@ -1189,7 +1189,7 @@
         <!--  Data Platform Dependencies  -->
         <!--  hadoop-mapreduce-client-core 2.5.2 have problems with guava-  -->
         <!--  see https://stackoverflow.com/questions/36427291/illegalaccesserror-to-guavas-stopwatch-from-org-apache-hadoop-mapreduce-lib-inp  -->
-        <hadoop.version>2.7.2</hadoop.version>
+        <hadoop.version>3.2.3</hadoop.version>
         <hbase.version>1.2.3</hbase.version>
 
         <!--  default version does not support java11,
