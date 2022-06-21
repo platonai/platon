@@ -1195,7 +1195,7 @@
         <!--  default version does not support java11,
             see https://github.com/yandex-qatools/postgresql-embedded/issues/153
         -->
-        <mysql.driver.version>8.0.23</mysql.driver.version>
+        <mysql.driver.version>8.0.28</mysql.driver.version>
         <!--  Search Engine  -->
         <solr.version>6.1.0</solr.version>
         <selenium.version>4.0.0-beta-2</selenium.version>
