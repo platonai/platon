@@ -22,7 +22,7 @@
     <groupId>ai.platon</groupId>
     <artifactId>platon</artifactId>
     <name>Platon AI</name>
-    <version>3.6.0-SNAPSHOT</version>
+    <version>3.6.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>
@@ -773,7 +773,7 @@
             <dependency>
                 <groupId>javax.persistence</groupId>
                 <artifactId>javax.persistence-api</artifactId>
-                <version>${javax.persistence.version}</version>
+                <version>${javax.persistence-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
@@ -861,7 +861,7 @@
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-mongodb</artifactId>
-                <version>${spring-data-mongo.version}</version>
+                <version>${spring-data-mongodb.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.session</groupId>
@@ -1000,7 +1000,7 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
-                <version>4.4.3</version>
+                <version>4.4.15</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -1035,16 +1035,16 @@
                 <artifactId>lucene-analyzers-smartcn</artifactId>
                 <version>${lucene.version}</version>
             </dependency>
-            <!--  First introduced for hyper link graph computing  -->
+            <!--  First introduced for hyperlink graph computing  -->
             <dependency>
                 <groupId>org.jgrapht</groupId>
                 <artifactId>jgrapht-core</artifactId>
-                <version>1.0.0</version>
+                <version>${jgrapht.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jgrapht</groupId>
                 <artifactId>jgrapht-ext</artifactId>
-                <version>1.0.0</version>
+                <version>${jgrapht.version}</version>
             </dependency>
             <!--
                 Hamcrest is a framework for writing matcher objects allowing ‘match’ rules to be defined declaratively.
@@ -1069,7 +1069,7 @@
             <dependency>
                 <groupId>com.beust</groupId>
                 <artifactId>jcommander</artifactId>
-                <version>1.81</version>
+                <version>1.82</version>
             </dependency>
             <!--  Expression  -->
             <dependency>
@@ -1165,6 +1165,15 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
+        <!--  Language  -->
+        <!--  Java  -->
+        <javac.src.version>11</javac.src.version>
+        <javac.target.version>11</javac.target.version>
+        <!--  Kotlin  -->
+        <kotlin.version>1.7.20</kotlin.version>
+        <kotlin.coroutine.version>1.6.4</kotlin.coroutine.version>
+        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+
         <!--  Gora Serialization  -->
         <!--
             Gora 0.9 supports:
@@ -1194,19 +1203,18 @@
         <solr.version>6.1.0</solr.version>
         <selenium.version>4.0.0</selenium.version>
         <!--  Persistence  -->
-        <javax.persistence.version>2.2</javax.persistence.version>
+        <javax.persistence-api.version>2.2</javax.persistence-api.version>
         <hibernate.version>5.4.29.Final</hibernate.version>
         <!--  Required by hibernate  -->
         <byte-buddy.version>1.9.5</byte-buddy.version>
         <!--  Spring  -->
-        <spring.version>5.3.20</spring.version>
-        <spring-data-mongo.version>3.2.7</spring-data-mongo.version>
-        <spring-boot.version>2.6.2</spring-boot.version>
+        <!--  Spring-boot 2.6.12 uses spring 5.3.23 officially -->
+        <spring-boot.version>2.6.12</spring-boot.version>
+        <spring.version>5.3.23</spring.version>
+        <spring-data-mongodb.version>3.3.9</spring-data-mongodb.version>
 <!--        <spring.version>5.1.8.RELEASE</spring.version>-->
 <!--        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>-->
 
-        <!-- Report -->
-        <sigar.version>1.6.4</sigar.version>
         <!-- Web server -->
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <!--
@@ -1227,17 +1235,18 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-io.version>2.11.0</commons-io.version>
         <!--   Google core libraries for Java, include Multimaps, etc  -->
-        <guava.version>30.1-jre</guava.version>
+        <guava.version>31.1-jre</guava.version>
         <gson.version>2.8.9</gson.version>
-        <jackson.version>2.12.6</jackson.version>
+        <jackson.version>2.12.7</jackson.version>
+        <jgrapht.version>1.0.1</jgrapht.version>
 
         <lucene.version>8.1.1</lucene.version>
         <!--  Logging, metrics analyze  -->
-        <oshi.version>5.6.0</oshi.version>
-        <metrics.version>4.1.29</metrics.version>
+        <oshi.version>6.2.2</oshi.version>
+        <metrics.version>4.2.12</metrics.version>
         <perf4j.version>0.9.16</perf4j.version>
         <!--  Logging And Testing Dependencies  -->
-        <logback.version>1.2.9</logback.version>
+        <logback.version>1.4.4</logback.version>
         <!--  Matchers that can be combined to create flexible expressions of intent  -->
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <org.hamcrest.version>1.3</org.hamcrest.version>
@@ -1245,12 +1254,5 @@
         <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>5.5.2</junit-jupiter.version>
         <javassist.version>3.22.0-GA</javassist.version>
-        <!--  Java  -->
-        <javac.src.version>11</javac.src.version>
-        <javac.target.version>11</javac.target.version>
-        <!--  Kotlin  -->
-        <kotlin.version>1.6.10</kotlin.version>
-        <kotlin.coroutine.version>1.6.0</kotlin.coroutine.version>
-        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     </properties>
 </project>
