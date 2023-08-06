@@ -1017,12 +1017,17 @@
             <dependency>
                 <groupId>javax.websocket</groupId>
                 <artifactId>javax.websocket-api</artifactId>
-                <version>1.1</version>
+                <version>${websocket.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.tyrus</groupId>
+                <artifactId>tyrus-container-grizzly-client</artifactId>
+                <version>${tyrus.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.tyrus</groupId>
                 <artifactId>tyrus-container-jdk-client</artifactId>
-                <version>1.8.3</version>
+                <version>${tyrus.version}</version>
             </dependency>
             <!--  NLP  -->
             <dependency>
@@ -1167,6 +1172,14 @@
         <assembly.tarLongFileMode>posix</assembly.tarLongFileMode>
         <project.build.outputTimestamp>2020-01-22T15:10:15Z</project.build.outputTimestamp>
 
+        <!--  Java  -->
+        <javac.src.version>11</javac.src.version>
+        <javac.target.version>11</javac.target.version>
+        <!--  Kotlin  -->
+        <kotlin.version>1.7.22</kotlin.version>
+        <kotlin.coroutine.version>1.6.4</kotlin.coroutine.version>
+        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+
         <!--  Maven Plugin Dependencies  -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -1185,7 +1198,7 @@
         <xerces.version>2.11.0</xerces.version>
         <nekohtml.version>1.9.22</nekohtml.version>
         <!-- <tika.version>[1.19.1,)</tika.version> -->
-        <tika.version>1.25</tika.version>
+        <tika.version>2.3.0</tika.version>
         <!--  Data Platform Dependencies  -->
         <!--  hadoop-mapreduce-client-core 2.5.2 have problems with guava-  -->
         <!--  see https://stackoverflow.com/questions/36427291/illegalaccesserror-to-guavas-stopwatch-from-org-apache-hadoop-mapreduce-lib-inp  -->
@@ -1234,12 +1247,12 @@
         <commons-io.version>2.4</commons-io.version>
         <!--   Google core libraries for Java, include Multimaps, etc  -->
         <guava.version>30.1-jre</guava.version>
-        <gson.version>2.8.6</gson.version>
-        <jackson.version>2.12.2</jackson.version>
+        <gson.version>2.10.1</gson.version>
+        <jackson.version>2.13.5</jackson.version>
 
         <lucene.version>8.1.1</lucene.version>
         <!--  Logging, metrics analyze  -->
-        <oshi.version>5.6.0</oshi.version>
+        <oshi.version>5.6.1</oshi.version>
         <metrics.version>4.1.18</metrics.version>
         <perf4j.version>0.9.16</perf4j.version>
         <!--  Logging And Testing Dependencies  -->
@@ -1250,13 +1263,10 @@
         <mockito-core.version>2.21.0</mockito-core.version>
         <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>5.5.2</junit-jupiter.version>
-        <javassist.version>3.22.0-GA</javassist.version>
-        <!--  Java  -->
-        <javac.src.version>11</javac.src.version>
-        <javac.target.version>11</javac.target.version>
-        <!--  Kotlin  -->
-        <kotlin.version>1.4.31</kotlin.version>
-        <kotlin.coroutine.version>1.4.3</kotlin.coroutine.version>
-        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+
+        <!-- required by pulsar-browser -->
+        <javassist.version>3.12.1.GA</javassist.version>
+        <websocket.api.version>1.1</websocket.api.version>
+        <tyrus.version>1.13.1</tyrus.version>
     </properties>
 </project>
