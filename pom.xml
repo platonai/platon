@@ -1006,12 +1006,17 @@
             <dependency>
                 <groupId>javax.websocket</groupId>
                 <artifactId>javax.websocket-api</artifactId>
-                <version>1.1</version>
+                <version>${websocket.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.tyrus</groupId>
+                <artifactId>tyrus-container-grizzly-client</artifactId>
+                <version>${tyrus.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.tyrus</groupId>
                 <artifactId>tyrus-container-jdk-client</artifactId>
-                <version>1.8.3</version>
+                <version>${tyrus.version}</version>
             </dependency>
             <!--  NLP  -->
             <dependency>
@@ -1156,11 +1161,6 @@
         <assembly.tarLongFileMode>posix</assembly.tarLongFileMode>
         <project.build.outputTimestamp>2020-01-22T15:10:15Z</project.build.outputTimestamp>
 
-        <!--  Maven Plugin Dependencies  -->
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-        <!--  Language  -->
         <!--  Java  -->
         <javac.src.version>11</javac.src.version>
         <javac.target.version>11</javac.target.version>
@@ -1168,7 +1168,10 @@
         <kotlin.version>1.7.22</kotlin.version>
         <kotlin.coroutine.version>1.6.4</kotlin.coroutine.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <dokka.version>1.8.10</dokka.version>
+
+        <!--  Maven Plugin Dependencies  -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 
         <!--  Gora Serialization  -->
         <!--
@@ -1248,6 +1251,10 @@
         <mockito-core.version>2.21.0</mockito-core.version>
         <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>5.5.2</junit-jupiter.version>
-        <javassist.version>3.22.0-GA</javassist.version>
+
+        <!-- required by pulsar-browser -->
+        <javassist.version>3.12.1.GA</javassist.version>
+        <websocket.api.version>1.1</websocket.api.version>
+        <tyrus.version>1.13.1</tyrus.version>
     </properties>
 </project>
