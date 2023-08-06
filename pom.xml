@@ -12,7 +12,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- From apache: "Most projects will want to override some of these settings." -->
-    <!-- see http://maven.apache.org/pom/asf/ -->
+    <!-- for more information, see the documentation of this POM: http://maven.apache.org/pom/asf/ -->
 
     <groupId>ai.platon</groupId>
     <artifactId>platon</artifactId>
@@ -583,11 +583,17 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Begin apache-30.pom -->
             <dependency>
                 <groupId>org.apache.maven.plugin-tools</groupId>
                 <artifactId>maven-plugin-annotations</artifactId>
                 <version>${version.maven-plugin-tools}</version>
             </dependency>
+            <!-- End apache-30.pom -->
+
+
+
+
 
 
 
@@ -956,9 +962,9 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.15</version>
+                <version>${commons-codec.version}</version>
             </dependency>
-            <!--  Utililty Dependencies  -->
+            <!--  Utility dependencies  -->
             <dependency>
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
@@ -967,7 +973,7 @@
             <dependency>
                 <groupId>xml-apis</groupId>
                 <artifactId>xml-apis</artifactId>
-                <version>1.3.04</version>
+                <version>${xml-apis.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
@@ -977,39 +983,39 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-text</artifactId>
-                <version>1.9</version>
+                <version>${commons-text.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.12.0</version>
+                <version>${commons-lang3.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-math3</artifactId>
-                <version>3.3</version>
+                <version>${commons-math3.version}</version>
             </dependency>
             <!--  Required by org.apache.hadoop.conf.Configuration  -->
             <dependency>
                 <groupId>commons-configuration</groupId>
                 <artifactId>commons-configuration</artifactId>
-                <version>1.6</version>
+                <version>${commons-configuration.version}</version>
             </dependency>
             <!--  Required by org.apache.hadoop.conf.Configuration  -->
             <dependency>
                 <groupId>commons-collections</groupId>
                 <artifactId>commons-collections</artifactId>
-                <version>3.2.2</version>
+                <version>${commons-collections.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>4.4</version>
+                <version>${commons-collections4.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
-                <version>1.1.3</version>
+                <version>${commons-logging.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -1030,12 +1036,12 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
-                <version>4.4.15</version>
+                <version>${httpcore.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.13</version>
+                <version>${httpclient.version}</version>
             </dependency>
 
             <dependency>
@@ -1098,7 +1104,7 @@
             <dependency>
                 <groupId>oro</groupId>
                 <artifactId>oro</artifactId>
-                <version>2.0.8</version>
+                <version>${oro.version}</version>
             </dependency>
             <!--  Commander line parser  -->
             <dependency>
@@ -1110,7 +1116,7 @@
             <dependency>
                 <groupId>com.udojava</groupId>
                 <artifactId>EvalEx</artifactId>
-                <version>2.0</version>
+                <version>${EvalEx.version}</version>
             </dependency>
             <!--  Logging, Tracking, Metrics  -->
             <!--  System monitor  -->
@@ -1153,7 +1159,7 @@
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
-                <version>3.0.0</version>
+                <version>${jsr305.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.perf4j</groupId>
@@ -1289,6 +1295,8 @@
         <spring-data-commons.version>3.1.2</spring-data-commons.version>
 
         <!-- Web server -->
+        <httpcore.version>4.4.15</httpcore.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <!--
             jersey : RESTful Web Services in Java.
@@ -1308,6 +1316,21 @@
         <!--  Misc Dependencies  -->
         <commons-lang.version>2.6</commons-lang.version>
         <commons-io.version>2.11.0</commons-io.version>
+        <commons-codec.version>1.15</commons-codec.version>
+        <commons-text.version>1.9</commons-text.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-math3.version>3.3</commons-math3.version>
+        <commons-configuration.version>1.6</commons-configuration.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-logging.version>1.1.3</commons-logging.version>
+        <commons-logging.version>1.1.3</commons-logging.version>
+        <commons-logging.version>1.1.3</commons-logging.version>
+
+        <xml-apis.version>1.3.04</xml-apis.version>
+        <oro.version>2.0.8</oro.version>
+        <EvalEx.version>2.0</EvalEx.version>
+        <jsr305.version>3.0.0</jsr305.version>
         <jcommander.version>1.82</jcommander.version>
         <!-- Reflect -->
         <javassist.version>3.12.1.GA</javassist.version>
@@ -1316,13 +1339,14 @@
         <gson.version>2.10.1</gson.version>
         <jackson.version>2.13.5</jackson.version>
         <jgrapht.version>1.0.1</jgrapht.version>
-        <!--  Logging, metrics analyze  -->
-        <oshi.version>6.2.2</oshi.version>
-        <metrics.version>4.2.12</metrics.version>
-        <perf4j.version>0.9.16</perf4j.version>
 
         <!--  Logging And Testing Dependencies  -->
         <logback.version>1.4.4</logback.version>
+        <!--  Logging, metrics analyze  -->
+        <oshi.version>6.2.2</oshi.version>
+        <perf4j.version>0.9.16</perf4j.version>
+        <metrics.version>4.2.12</metrics.version>
+
         <!--  Matchers that can be combined to create flexible expressions of intent  -->
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <org.hamcrest.version>1.3</org.hamcrest.version>
