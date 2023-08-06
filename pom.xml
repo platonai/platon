@@ -83,6 +83,10 @@
     </repositories>
 
     <build>
+        <defaultGoal>install</defaultGoal>
+        <directory>target</directory>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -182,9 +186,30 @@
                     </configuration>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>${maven-exec-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.gora</groupId>
+                    <artifactId>gora-maven-plugin</artifactId>
+                    <version>${gora.version}</version>
+                </plugin>
 
 
 
+
+
+
+                <!-- !!! -->
+                <!-- The following are copied from apache-30.pom -->
                 <!-- set versions of common plugins for reproducibility, ordered alphabetically -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -240,6 +265,15 @@
                             <arg>--digest-algo=SHA512</arg>
                         </gpgArguments>
                     </configuration>
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <id>sign-artifacts</id>-->
+<!--                            <phase>verify</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>sign</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -364,9 +398,21 @@
                     <artifactId>apache-rat-plugin</artifactId>
                     <version>${version.apache-rat-plugin}</version>
                 </plugin>
+<!--                <plugin>-->
+<!--                    <groupId>org.sonatype.plugins</groupId>-->
+<!--                    <artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--                    <version>1.6.7</version>-->
+<!--                    <extensions>true</extensions>-->
+<!--                </plugin>-->
+                <!-- The above are copied from apache-30.pom -->
             </plugins>
         </pluginManagement>
         <plugins>
+            <!--  kotlin plugin should come before maven-compiler-plugin  -->
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+            </plugin>
             <!-- We want to package up license resources in the JARs produced -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -470,6 +516,12 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <!-- We want to deploy the artifact to a staging location for perusal -->
+                    <plugin>
+                        <inherited>true</inherited>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -493,6 +545,11 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <!-- We want to sign the artifact, the POM, and all attached artifacts -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
                     </plugin>
                     <!-- calculate checksums of source release for Apache dist area -->
                     <plugin>
@@ -519,19 +576,6 @@
                                          as this eases uploading from stage to dist and doesn't do harm in Maven Central -->
                                     <attachChecksums>true</attachChecksums>
                                 </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- We want to sign the artifact, the POM, and all attached artifacts (except for SHA-512 checksum) -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>sign-release-artifacts</id>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
@@ -1180,6 +1224,23 @@
                 <scope>test</scope>
                 <version>${junit-jupiter.version}</version>
             </dependency>
+
+
+
+
+
+            <!-- Platon dependency -->
+            <dependency>
+                <groupId>ai.platon.pulsar</groupId>
+                <artifactId>pulsar-h2</artifactId>
+                <version>${pulsar-h2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ai.platon.pulsar</groupId>
+                <artifactId>pulsar-jsoup</artifactId>
+                <version>${pulsar-jsoup.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -1354,5 +1415,10 @@
         <!-- Note: This artifact was moved to: org.junit.jupiter » junit-jupiter-api -->
         <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>5.10.0</junit-jupiter.version>
+
+
+        <!-- Pulsar dependency -->
+        <pulsar-h2.version>1.4.196</pulsar-h2.version>
+        <pulsar-jsoup.version>1.14.3</pulsar-jsoup.version>
     </properties>
 </project>
