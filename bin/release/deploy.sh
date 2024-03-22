@@ -14,7 +14,7 @@ echo "$VERSION" > "$APP_HOME"/VERSION
 find "$APP_HOME" -name 'pom.xml' -exec sed -i "s/$SNAPSHOT_VERSION/$VERSION/" {} \;
 
 mvn clean
-mvn deploy
+mvn deploy -P platon-release
 
 exitCode=$?
 [ $exitCode -eq 0 ] && echo "Build successfully" || exit 1
