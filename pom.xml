@@ -17,7 +17,7 @@
     <groupId>ai.platon</groupId>
     <artifactId>platon</artifactId>
     <name>Platon AI</name>
-    <version>3.7.1-SNAPSHOT</version>
+    <version>3.7.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>
