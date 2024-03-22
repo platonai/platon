@@ -250,6 +250,7 @@
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>${version.maven-surefire}</version>
                 </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
@@ -259,15 +260,15 @@
                             <arg>--digest-algo=SHA512</arg>
                         </gpgArguments>
                     </configuration>
-<!--                    <executions>-->
-<!--                        <execution>-->
-<!--                            <id>sign-artifacts</id>-->
-<!--                            <phase>verify</phase>-->
-<!--                            <goals>-->
-<!--                                <goal>sign</goal>-->
-<!--                            </goals>-->
-<!--                        </execution>-->
-<!--                    </executions>-->
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -392,12 +393,6 @@
                     <artifactId>apache-rat-plugin</artifactId>
                     <version>${version.apache-rat-plugin}</version>
                 </plugin>
-<!--                <plugin>-->
-<!--                    <groupId>org.sonatype.plugins</groupId>-->
-<!--                    <artifactId>nexus-staging-maven-plugin</artifactId>-->
-<!--                    <version>1.6.7</version>-->
-<!--                    <extensions>true</extensions>-->
-<!--                </plugin>-->
                 <!-- The above are copied from apache-30.pom -->
             </plugins>
         </pluginManagement>
