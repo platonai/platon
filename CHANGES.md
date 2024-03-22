@@ -1,4 +1,13 @@
-## dev-3.4
+CHANGES
+=
+
+3.7
+==
+
+The base pom is apache-30.
+
+3.4
+==
 
 Upgrades: 
 
