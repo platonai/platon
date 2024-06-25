@@ -789,11 +789,11 @@
                 <version>1</version>
             </dependency>
             <!-- use spring's version -->
-<!--            <dependency>-->
-<!--                <groupId>javax.servlet</groupId>-->
-<!--                <artifactId>javax.servlet-api</artifactId>-->
-<!--                <version>${javax.servlet-api.version}</version>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>javax.servlet</groupId>-->
+            <!--                <artifactId>javax.servlet-api</artifactId>-->
+            <!--                <version>${javax.servlet-api.version}</version>-->
+            <!--            </dependency>-->
             <!--  JSTL  -->
             <!--  https://mvnrepository.com/artifact/javax.servlet/jstl  -->
             <dependency>
@@ -1397,7 +1397,7 @@
         <!-- Web server -->
         <httpcore.version>4.4.15</httpcore.version>
         <httpclient.version>4.5.13</httpclient.version>
-<!--        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>-->
+        <!--        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>-->
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <!--
             jersey : RESTful Web Services in Java.
@@ -1431,8 +1431,8 @@
         <EvalEx.version>2.0</EvalEx.version>
         <jsr305.version>3.0.0</jsr305.version>
         <jcommander.version>1.82</jcommander.version>
-        <!-- Reflect -->
-        <javassist.version>3.12.1.GA</javassist.version>
+        <!-- Reflect, org.javassist:javassist -->
+        <javassist.version>3.30.2-GA</javassist.version>
         <!-- Google core libraries for Java, include Multimaps, etc  -->
         <!-- guava-32.1.3-jre has compatibility problem with kotlin-1.9.20,
             kotlin contains the source code of com.google.common.collect.ImmutableMap,
@@ -1460,7 +1460,6 @@
         <!-- Note: This artifact was moved to: org.junit.jupiter » junit-jupiter-api -->
         <junit.version>4.13.2</junit.version>
         <junit-jupiter.version>5.10.0</junit-jupiter.version>
-<!--        <junit-version>5.8.2</junit-version>-->
 
 
         <!-- Pulsar dependency -->
