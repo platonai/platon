@@ -3,9 +3,6 @@ $bin = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $APP_HOME = (Resolve-Path "$bin\..").Path
 $gitExe = "git" # Assuming git is in the system PATH
 
-# Switching remote URLs from HTTPS to SSH
-& $gitExe remote set-url origin git@github.com:platonai/PulsarRPA.git
-
 # Get version information
 $SNAPSHOT_VERSION = Get-Content "$APP_HOME\VERSION" -TotalCount 1
 $VERSION =$SNAPSHOT_VERSION -replace "-SNAPSHOT", ""
@@ -95,6 +92,6 @@ function Checkout-WorkingBranch {
 # Call functions
 Restore-WorkingBranch
 Pull-Changes
+Add-Tag
 Merge-ToMainBranch
 Checkout-WorkingBranch
-Add-Tag
