@@ -16,13 +16,13 @@
 
     <groupId>ai.platon</groupId>
     <artifactId>platon</artifactId>
-    <name>Platon AI</name>
+    <!-- From 4.0.0, the artifactId should be "platon-bom" -->
+<!--    <artifactId>platon-bom</artifactId>-->
+    <name>Platon (Bill of Materials)</name>
     <version>3.7.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <description>
-        This project consists of a POM that contains settings that are likely to be useful to any Platon project
-    </description>
+    <description>This Bill of Materials POM can be used to ease dependency management.</description>
 
     <url>http://platon.ai</url>
     <inceptionYear>2014</inceptionYear>
@@ -1148,12 +1148,12 @@
             </dependency>
             <!--  junit 5  -->
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <scope>test</scope>
-                <version>${junit-jupiter.version}</version>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
-
 
 
 
@@ -1200,7 +1200,9 @@
         <minimalJavaBuildVersion>1.8</minimalJavaBuildVersion>
         <maven.compiler.source>${maven.compiler.target}</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <surefire.version>3.1.2</surefire.version><!-- for surefire, failsafe and surefire-report -->
+        <!-- Maven Surefire Plugin is a primary tool used in Maven projects for executing tests. It supports various
+testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
+        <surefire.version>3.2.3</surefire.version>
         <maven.plugin.tools.version>3.9.0</maven.plugin.tools.version><!-- for m-plugin-p and maven-plugin-annotations -->
         <assembly.tarLongFileMode>posix</assembly.tarLongFileMode>
 
@@ -1249,8 +1251,8 @@
         <!-- Target version of the generated JVM bytecode, 1.8, 9, 10, ..., 21, default 1.8 -->
         <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
 
-        <kotlin.version>1.9.20</kotlin.version>
-        <kotlin.coroutine.version>1.7.3</kotlin.coroutine.version>
+        <kotlin.version>1.9.24</kotlin.version>
+        <kotlin.coroutine.version>1.8.1</kotlin.coroutine.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
         <dokka.version>1.9.10</dokka.version>
@@ -1289,6 +1291,7 @@
         -->
         <mysql.driver.version>8.0.23</mysql.driver.version>
         <!--  Search Engine  -->
+        <!-- deprecated -->
         <solr.version>6.1.0</solr.version>
         <selenium.version>4.11.0</selenium.version>
         <!--  Persistence  -->
@@ -1315,10 +1318,10 @@
             @see https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions
             -->
         <!-- The following package versions are compatible officially -->
-        <spring.version>5.3.29</spring.version>
-        <spring-boot.version>2.7.14</spring-boot.version>
-        <spring-data-mongodb.version>3.4.14</spring-data-mongodb.version>
-        <spring-data-commons.version>2.7.14</spring-data-commons.version>
+        <spring.version>5.3.37</spring.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <spring-data-commons.version>2.7.18</spring-data-commons.version>
+        <spring-data-mongodb.version>3.4.18</spring-data-mongodb.version>
 
         <!-- Web server -->
         <httpcore.version>4.4.15</httpcore.version>
@@ -1340,7 +1343,6 @@
         <websocket.api.version>1.1</websocket.api.version>
         <tyrus.version>1.13.1</tyrus.version>
 
-        <!--  Misc Dependencies  -->
         <commons-lang.version>2.6</commons-lang.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-codec.version>1.15</commons-codec.version>
@@ -1370,6 +1372,12 @@
         <jackson.version>2.13.5</jackson.version>
         <jgrapht.version>1.0.1</jgrapht.version>
 
+        <!-- AI -->
+        <langchain4j.version>0.31.0</langchain4j.version>
+
+        <!--  Misc Dependencies  -->
+        <autolink.version>0.11.0</autolink.version>
+
         <!--  Logging And Testing Dependencies  -->
         <slf4j.version>1.7.36</slf4j.version>
         <log4j.version>2.20.0</log4j.version>
@@ -1385,11 +1393,11 @@
         <mockito-core.version>2.21.0</mockito-core.version>
         <!-- Note: This artifact was moved to: org.junit.jupiter » junit-jupiter-api -->
         <junit.version>4.13.2</junit.version>
-        <junit-jupiter.version>5.10.0</junit-jupiter.version>
-
+        <junit-bom.version>5.10.3</junit-bom.version>
 
         <!-- Pulsar dependency -->
         <pulsar-h2.version>1.4.196</pulsar-h2.version>
         <pulsar-jsoup.version>1.14.3</pulsar-jsoup.version>
+        <gora-shaded-mongodb.version>0.9</gora-shaded-mongodb.version>
     </properties>
 </project>
