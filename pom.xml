@@ -713,11 +713,12 @@
                 <version>1</version>
             </dependency>
             <!-- use spring's version -->
-            <!--            <dependency>-->
-            <!--                <groupId>javax.servlet</groupId>-->
-            <!--                <artifactId>javax.servlet-api</artifactId>-->
-            <!--                <version>${javax.servlet-api.version}</version>-->
-            <!--            </dependency>-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
             <!--  JSTL  -->
             <!--  https://mvnrepository.com/artifact/javax.servlet/jstl  -->
             <dependency>
@@ -1003,7 +1004,6 @@
                 <artifactId>gson</artifactId>
                 <version>${gson.version}</version>
             </dependency>
-            <!--  Net  -->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
@@ -1241,13 +1241,13 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!-- .......................... -->
 
         <!--  Java  -->
-        <javac.src.version>11</javac.src.version>
-        <javac.target.version>11</javac.target.version>
+        <javac.src.version>17</javac.src.version>
+        <javac.target.version>17</javac.target.version>
         <!--  Kotlin  -->
         <!-- supported languageVersion: 1.8, 1.9, 2.0, etc -->
         <!--        <kotlin.compiler.languageVersion>1.9</kotlin.compiler.languageVersion>-->
         <!-- Target version of the generated JVM bytecode, 1.8, 9, 10, ..., 21, default 1.8 -->
-        <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
+        <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
 
         <kotlin.version>1.9.24</kotlin.version>
         <kotlin.coroutine.version>1.8.1</kotlin.coroutine.version>
@@ -1315,17 +1315,34 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
 
             @see https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions
             -->
-        <!-- The following package versions are compatible officially -->
-        <spring.version>5.3.37</spring.version>
-        <spring-boot.version>2.7.18</spring-boot.version>
-        <spring-data-commons.version>2.7.18</spring-data-commons.version>
-        <spring-data-mongodb.version>3.4.18</spring-data-mongodb.version>
+        <!--
+        Upgrade spring-boot from 2.7.18 to 3.3.1, for the reasons:
+        1. GraalVM Native Images support, see https://docs.spring.io/spring-boot/reference/packaging/native-image/index.html
+         -->
+        <spring-boot.version>3.3.1</spring-boot.version>
+        <!-- Use the one induced by spring-boot -->
+        <spring.version>6.1.10</spring.version>
+        <!--
+        Notice: induce a lot of dependencies:
+        1. spring-core, spring-beans, spring-context, spring-expression, etc.
+        2. [optional] mongodb-driver-sync
+        3. [optional] kotlin-stdlib, kotlin-reflect, kotlinx-coroutines-core, kotlinx-coroutines-reactor, etc.
+        4. [optional] reactor-core, reactor-extra, etc.
+        5. [optional] jackson-databind
+        6. [optional] others
+        see https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb/4.3.1
+        -->
+        <spring-data-mongodb.version>4.3.1</spring-data-mongodb.version>
 
         <!-- Web server -->
         <httpcore.version>4.4.15</httpcore.version>
         <httpclient.version>4.5.13</httpclient.version>
-        <!--        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>-->
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <!-- Java Servlet is the foundation web specification in the Java Enterprise Platform. Developers can build
+        web applications using the Servlet API to interact with the request/response workflow. -->
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api/4.0.1 -->
+        <!-- Moved to  -->
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <!--        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>-->
         <!--
             jersey : RESTful Web Services in Java.
             Jersey RESTful Web Services framework is open source, production quality,
