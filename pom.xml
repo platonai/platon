@@ -1142,11 +1142,10 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>${junit-bom.version}</version>
+                <version>${junit5.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
 
 
 
@@ -1194,7 +1193,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <!-- Maven Surefire Plugin is a primary tool used in Maven projects for executing tests. It supports various
 testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
-        <surefire.version>3.2.3</surefire.version>
+        <surefire.version>3.3.0</surefire.version>
         <maven.plugin.tools.version>3.9.0</maven.plugin.tools.version><!-- for m-plugin-p and maven-plugin-annotations -->
         <assembly.tarLongFileMode>posix</assembly.tarLongFileMode>
 
@@ -1403,7 +1402,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <mockito-core.version>2.21.0</mockito-core.version>
         <!-- Note: This artifact was moved to: org.junit.jupiter » junit-jupiter-api -->
         <junit.version>4.13.2</junit.version>
-        <junit-bom.version>5.10.3</junit-bom.version>
+        <junit5.version>5.10.3</junit5.version>
 
         <!-- Pulsar dependency -->
         <pulsar-h2.version>1.4.196</pulsar-h2.version>
