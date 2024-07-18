@@ -19,7 +19,7 @@
     <!-- From 4.0.0, the artifactId should be "platon-bom" -->
 <!--    <artifactId>platon-bom</artifactId>-->
     <name>Platon (Bill of Materials)</name>
-    <version>3.7.2-SNAPSHOT</version>
+    <version>3.7.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>This Bill of Materials POM can be used to ease dependency management.</description>
