@@ -1140,6 +1140,7 @@
                 <version>${perf4j.version}</version>
             </dependency>
             <!--  junit 4  -->
+            <!-- TODO: always use junit-bom -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -1154,7 +1155,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
 
 
 
@@ -1398,7 +1404,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!--  Matchers that can be combined to create flexible expressions of intent  -->
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <org.hamcrest.version>1.3</org.hamcrest.version>
-        <mockito-core.version>2.21.0</mockito-core.version>
+        <mockito-core.version>5.11.0</mockito-core.version>
         <!-- Note: This artifact was moved to: org.junit.jupiter » junit-jupiter-api -->
         <junit.version>4.13.2</junit.version>
         <junit-bom.version>5.10.3</junit-bom.version>
