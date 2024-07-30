@@ -8,6 +8,9 @@ cd $AppHome
 Write-Host "Deploy the project ..."
 Write-Host "Changing version ..."
 
+# Maven command and options
+$MVNW = Join-Path $AppHome '.\mvnw.cmd'
+
 $SNAPSHOT_VERSION = Get-Content "$AppHome\VERSION" -TotalCount 1
 $VERSION =$SNAPSHOT_VERSION -replace "-SNAPSHOT", ""
 $VERSION | Set-Content "$AppHome\VERSION"
