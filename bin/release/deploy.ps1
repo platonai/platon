@@ -20,7 +20,7 @@ Get-ChildItem -Path "$AppHome" -Depth 2 -Filter 'pom.xml' -Recurse | ForEach-Obj
 }
 
 & $MVNW clean
-& $MVNW
+& $MVNW deploy
 
 $exitCode =$LastExitCode
 if ($exitCode -eq 0) {
