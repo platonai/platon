@@ -1,8 +1,13 @@
 #bin
 
-bin=$(dirname "$0")/..
-bin=$(cd "$bin">/dev/null || exit; pwd)
-APP_HOME=$(cd "$bin"/..>/dev/null || exit; pwd)
+# Find the first parent directory that contains a pom.xml file
+APP_HOME=$(cd "$(dirname "$0")">/dev/null || exit; pwd)
+while [[ "$APP_HOME" != "/" ]]; do
+  if [[ -f "$APP_HOME/pom.xml" ]]; then
+    break
+  fi
+  APP_HOME=$(dirname "$APP_HOME")
+done
 
 echo "Deploy the project ..."
 echo "Changing version ..."
@@ -13,8 +18,8 @@ echo "$VERSION" > "$APP_HOME"/VERSION
 
 find "$APP_HOME" -name 'pom.xml' -exec sed -i "s/$SNAPSHOT_VERSION/$VERSION/" {} \;
 
-mvn clean
-mvn deploy -Pplaton-release
+"$APP_HOME"/mvnw clean
+"$APP_HOME"/mvn deploy -Pplaton-release -Possrh
 
 exitCode=$?
 [ $exitCode -eq 0 ] && echo "Build successfully" || exit 1

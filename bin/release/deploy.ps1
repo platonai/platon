@@ -20,7 +20,7 @@ Get-ChildItem -Path "$AppHome" -Depth 2 -Filter 'pom.xml' -Recurse | ForEach-Obj
 }
 
 & $MVNW clean
-& $MVNW deploy -P platon-release
+& $MVNW deploy -Pplaton-release -Possrh
 
 $exitCode =$LastExitCode
 if ($exitCode -eq 0) {
