@@ -1391,7 +1391,8 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <logback.version>1.5.6</logback.version>
 
         <!--  Logging, metrics analyze  -->
-        <slf4j.version>1.7.32</slf4j.version>
+        <!--        <log4j.version>1.2.17</log4j.version>-->
+        <log4j.version>2.17.2</log4j.version>
         <oshi.version>6.4.13</oshi.version>
         <perf4j.version>0.9.16</perf4j.version>
         <metrics.version>4.2.12</metrics.version>
