@@ -1120,6 +1120,63 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
+
+            <!-- org.slf4j are copied from spring-boot-dependencies-3.3.1.pom -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-ext</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jdk-platform-logging</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jdk14</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-nop</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-reload4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
             <!--  Testing  -->
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
@@ -1163,13 +1220,6 @@
 
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib</artifactId>
-        </dependency>
-    </dependencies>
 
     <properties>
         <!-- .......................... -->
@@ -1387,8 +1437,10 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <autolink.version>0.11.0</autolink.version>
 
         <!--  Logging And Testing Dependencies, always keep consistent with spring-boot-starter-logging -->
-        <slf4j.version>1.7.36</slf4j.version>
+<!--        <slf4j.version>1.7.36</slf4j.version>-->
+        <slf4j.version>2.0.13</slf4j.version>
         <logback.version>1.5.6</logback.version>
+        <log4j2.version>2.23.1</log4j2.version>
 
         <!--  Logging, metrics analyze  -->
         <!--        <log4j.version>1.2.17</log4j.version>-->
