@@ -238,11 +238,6 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${version.maven-compiler-plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>${version.maven-dependency-plugin}</version>
                 </plugin>
@@ -1325,12 +1320,12 @@
 
         <!--  Java  -->
         <javac.src.version>17</javac.src.version>
-        <javac.target.version>17</javac.target.version>
+        <javac.target.version>11</javac.target.version>
         <!--  Kotlin  -->
         <!-- supported languageVersion: 1.8, 1.9, 2.0, etc -->
         <!--        <kotlin.compiler.languageVersion>1.9</kotlin.compiler.languageVersion>-->
         <!-- Target version of the generated JVM bytecode, 1.8, 9, 10, ..., 21, default 1.8 -->
-        <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
+        <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
 
         <kotlin.version>1.9.24</kotlin.version>
         <kotlin.coroutine.version>1.8.1</kotlin.coroutine.version>
