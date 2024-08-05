@@ -1320,7 +1320,7 @@
 
         <!--  Java  -->
         <javac.src.version>17</javac.src.version>
-        <javac.target.version>11</javac.target.version>
+        <javac.target.version>17</javac.target.version>
         <!--  Kotlin  -->
         <!-- supported languageVersion: 1.8, 1.9, 2.0, etc -->
         <!--        <kotlin.compiler.languageVersion>1.9</kotlin.compiler.languageVersion>-->
