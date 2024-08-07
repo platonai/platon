@@ -1013,6 +1013,13 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
+                <!-- commons-logging excluding is required by spring-boot -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -1294,7 +1301,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
         <hibernate.version>5.4.29.Final</hibernate.version>
         <!-- Required by hibernate, spring-boot-starter-test, correct the version -->
-        <byte-buddy.version>1.12.9</byte-buddy.version>
+        <byte-buddy.version>1.14.12</byte-buddy.version>
         <!-- Spring  -->
         <!--
             Spring Framework Versions (2023.08.06):
