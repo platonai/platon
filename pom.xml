@@ -330,7 +330,7 @@
                     <configuration>
                         <useReleaseProfile>false</useReleaseProfile>
                         <goals>deploy</goals>
-                        <releaseProfiles>apache-release</releaseProfiles>
+                        <releaseProfiles>platon-release</releaseProfiles>
                     </configuration>
                 </plugin>
                 <!-- END SNIPPET: release-plugin-configuration -->
