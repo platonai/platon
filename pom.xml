@@ -20,7 +20,10 @@
     <version>4.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <description>Bill of Materials POM for getting full, complete set of compatible versions of PulsarRPA dependencies</description>
+    <description>
+        This is the Platon AI parent project, which manages the majority of the common dependencies for all subprojects.
+        It ensures consistency and ease of maintenance across the project ecosystem.
+    </description>
 
     <url>http://platon.ai</url>
     <inceptionYear>2014</inceptionYear>
@@ -643,6 +646,7 @@
                 </exclusions>
             </dependency>
             <!--  Selenium  -->
+
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
@@ -681,26 +685,15 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <!--  TODO: check the version, seems higher version exists  -->
-            <dependency>
-                <groupId>javax.inject</groupId>
-                <artifactId>javax.inject</artifactId>
-                <version>1</version>
-            </dependency>
-            <!-- use spring's version -->
+
+            <!-- TODO: This artifact was moved to: jakarta.servlet » jakarta.servlet-api -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${javax.servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!--  JSTL  -->
-            <!--  https://mvnrepository.com/artifact/javax.servlet/jstl  -->
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>jstl</artifactId>
-                <version>1.2</version>
-            </dependency>
+
             <!--  Html  -->
             <dependency>
                 <groupId>org.jodd</groupId>
@@ -753,6 +746,7 @@
                 </exclusions>
             </dependency>
             <!-- Persist -->
+            <!-- TODO: This artifact was moved to: jakarta.persistence » jakarta.persistence-api -->
             <dependency>
                 <groupId>javax.persistence</groupId>
                 <artifactId>javax.persistence-api</artifactId>
@@ -779,11 +773,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.data</groupId>-->
-<!--                <artifactId>spring-data-mongodb</artifactId>-->
-<!--                <version>${spring-data-mongodb.version}</version>-->
-<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.springframework.session</groupId>
@@ -853,8 +842,7 @@
                 <scope>import</scope>
             </dependency>
 
-
-            <!--  Storage  -->
+            <!--  Apache commons  -->
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
@@ -918,6 +906,17 @@
                 <artifactId>commons-compress</artifactId>
                 <version>1.21</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-numbers-bom -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-numbers-bom</artifactId>
+                <version>1.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
@@ -1270,22 +1269,13 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!-- Java Servlet is the foundation web specification in the Java Enterprise Platform. Developers can build
         web applications using the Servlet API to interact with the request/response workflow. -->
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api/4.0.1 -->
-        <!-- Moved to  -->
+        <!-- TODO: This artifact was moved to: jakarta.servlet » jakarta.servlet-api -->
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <!--        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>-->
-        <!--
-            jersey : RESTful Web Services in Java.
-            Jersey RESTful Web Services framework is open source, production quality,
-            framework for developing RESTful Web Services in Java that provides support for JAX-RS APIs
-            and serves as a JAX-RS (JSR 311 & JSR 339) Reference Implementation.
-            https://jersey.java.net/
-          -->
-        <!--  Hadoop [2, ) depends on jersey-1, jersey-1 is required if the code starts by hadoop's RunJar  -->
-        <jersey-1.version>1.19.3</jersey-1.version>
-        <jetty.version>9.4.19.v20190610</jetty.version>
-        <jetty-maven-plugin.version>9.4.19.v20190610</jetty-maven-plugin.version>
+
         <netty.version>4.1.48.Final</netty.version>
+        <!-- required by pulsar-browser -->
         <websocket.api.version>1.1</websocket.api.version>
+        <!-- org.glassfish.tyrus, required by pulsar-browser -->
         <tyrus.version>1.13.1</tyrus.version>
 
         <commons-lang.version>2.6</commons-lang.version>
@@ -1329,7 +1319,6 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <log4j2.version>2.23.1</log4j2.version>
 
         <!--  Logging, metrics analyze  -->
-        <!--        <log4j.version>1.2.17</log4j.version>-->
         <log4j.version>2.17.2</log4j.version>
         <oshi.version>6.4.13</oshi.version>
         <perf4j.version>0.9.16</perf4j.version>
@@ -1338,9 +1327,10 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!--  Matchers that can be combined to create flexible expressions of intent  -->
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <org.hamcrest.version>1.3</org.hamcrest.version>
+        <!-- Mockito is a popular and widely-used mocking framework for unit testing in Java. -->
         <mockito-core.version>2.21.0</mockito-core.version>
-        <!-- Note: This artifact was moved to: org.junit.jupiter » junit-jupiter-api -->
-        <junit.version>4.13.2</junit.version>
+        <!-- MockK is a powerful and flexible mocking library designed specifically for Kotlin. -->
+        <mockk.version>1.13.8</mockk.version>
         <junit5.version>5.10.3</junit5.version>
 
         <!-- Pulsar dependency -->
