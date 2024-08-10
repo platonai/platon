@@ -15,8 +15,8 @@
     <!-- for more information, see the documentation of this POM: http://maven.apache.org/pom/asf/ -->
 
     <groupId>ai.platon</groupId>
-    <artifactId>platon-bom</artifactId>
-    <name>Platon Bill of Materials</name>
+    <artifactId>platon</artifactId>
+    <name>Platon</name>
     <version>4.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -852,6 +852,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
 
             <!--  Storage  -->
             <dependency>
