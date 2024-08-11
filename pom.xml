@@ -501,7 +501,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <version>${nexus-staging-maven-plugin.version}</version>
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
@@ -584,6 +584,7 @@
                 <artifactId>kotlin-serialization</artifactId>
                 <version>${kotlin.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-common</artifactId>
@@ -705,17 +706,23 @@
             <dependency>
                 <groupId>org.jodd</groupId>
                 <artifactId>jodd-core</artifactId>
-                <version>3.5.2</version>
+                <version>${jodd-trove4j-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>net.sourceforge.nekohtml</groupId>
                 <artifactId>nekohtml</artifactId>
                 <version>${nekohtml.version}</version>
             </dependency>
+            <!-- TODO: This artifact was moved to: net.sf.trove4j » core -->
             <dependency>
                 <groupId>net.sf.trove4j</groupId>
                 <artifactId>trove4j</artifactId>
-                <version>3.0.3</version>
+                <version>${trove4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sf.trove4j</groupId>
+                <artifactId>core</artifactId>
+                <version>${trove4j-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>jtidy</groupId>
@@ -723,17 +730,19 @@
                 <version>4aug2000r7-dev</version>
             </dependency>
             <!--  for EncodingDetector  -->
+            <!-- International Components for Unicode for Java (ICU4J) is a mature, widely used Java library providing
+            Unicode and Globalization support -->
             <dependency>
                 <groupId>com.ibm.icu</groupId>
                 <artifactId>icu4j</artifactId>
-                <version>4.0.1</version>
+                <version>${icu4j.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/xerces/xercesImpl -->
-            <!-- xerces is no longer used -->
+            <!-- Xerces2 provides high performance, fully compliant XML parsers -->
             <dependency>
                 <groupId>xerces</groupId>
                 <artifactId>xercesImpl</artifactId>
-                <version>2.12.2</version>
+                <version>${xercesImpl.version}</version>
             </dependency>
             <!--  Tika for general document parsers  -->
             <dependency>
@@ -830,6 +839,11 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-test</artifactId>
                 <version>${spring-boot.version}</version>
                 <scope>test</scope>
@@ -860,11 +874,6 @@
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>xml-apis</groupId>
-                <artifactId>xml-apis</artifactId>
-                <version>${xml-apis.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
@@ -911,19 +920,94 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-compress</artifactId>
-                <version>1.21</version>
+                <version>${commons-compress.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi-ooxml.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-numbers-bom -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-numbers-bom</artifactId>
-                <version>1.1</version>
+                <version>${commons-numbers-bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
 
 
+            <!-- https://haifengl.github.io/ -->
+            <!-- Smile is a fast and comprehensive machine learning engine. -->
+            <!--
+            Why SMILE instead of Spark? Because we need a built, lightweight, fast, minimal dependent library in Scent
+            project. We also have a spark based ML project.
+             -->
+            <dependency>
+                <groupId>com.github.haifengl</groupId>
+                <artifactId>smile-base</artifactId>
+                <version>${smile.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.haifengl</groupId>
+                <artifactId>smile-core</artifactId>
+                <version>${smile.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.haifengl</groupId>
+                <artifactId>smile-plot</artifactId>
+                <version>${smile.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.haifengl</groupId>
+                <artifactId>smile-kotlin</artifactId>
+                <version>${smile.version}</version>
+            </dependency>
+
+            <!-- Java Predictive Model Markup Language -->
+            <dependency>
+                <groupId>org.jpmml</groupId>
+                <artifactId>pmml-agent</artifactId>
+                <version>${pmml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jpmml</groupId>
+                <artifactId>pmml-model-jackson</artifactId>
+                <version>${pmml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jpmml</groupId>
+                <artifactId>pmml-evaluator-metro</artifactId>
+                <version>${pmml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jpmml</groupId>
+                <artifactId>pmml-evaluator-testing</artifactId>
+                <version>${pmml.version}</version>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>xml-apis</groupId>
+                <artifactId>xml-apis</artifactId>
+                <version>${xml-apis.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
@@ -953,7 +1037,7 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
-                <version>${httpcore.version}</version>
+                <version>${httptrove4j-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -1045,7 +1129,7 @@
             <dependency>
                 <groupId>org.nield</groupId>
                 <artifactId>kotlin-statistics</artifactId>
-                <version>1.2.1</version>
+                <version>${kotlin-statistics.version}</version>
             </dependency>
 
             <!--  Logging, Tracking, Metrics  -->
@@ -1053,7 +1137,7 @@
             <dependency>
                 <groupId>com.github.oshi</groupId>
                 <artifactId>oshi-core</artifactId>
-                <version>${oshi.version}</version>
+                <version>${oshi-trove4j-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.dropwizard.metrics</groupId>
@@ -1118,6 +1202,13 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
             <!-- Platon dependency -->
             <dependency>
                 <groupId>ai.platon.pulsar</groupId>
@@ -1140,6 +1231,14 @@
 
         <!-- The following are copied from apache-30.pom -->
         <!-- set versions of common plugins for reproducibility, ordered alphabetically -->
+        <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
+        <xercesImpl.version>2.12.2</xercesImpl.version>
+        <trove4j-core.version>3.0.3</trove4j-core.version>
+        <icu4j.version>75.1</icu4j.version>
+        <trove4j.version>3.0.3</trove4j.version>
+        <jodd-trove4j-core.version>3.5.2</jodd-trove4j-core.version>
+
+        <kotlin-statistics.version>1.2.1</kotlin-statistics.version>
         <distMgmtReleasesName>Apache Release Distribution Repository</distMgmtReleasesName>
         <distMgmtReleasesUrl>https://repository.apache.org/service/local/staging/deploy/maven2</distMgmtReleasesUrl>
         <distMgmtSnapshotsName>Apache Development Snapshot Repository</distMgmtSnapshotsName>
@@ -1211,6 +1310,26 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
 
         <dokka.version>1.9.10</dokka.version>
 
+
+        <!-- Apache common libraries -->
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-io.version>2.11.0</commons-io.version>
+        <commons-codec.version>1.17.0</commons-codec.version>
+        <commons-text.version>1.11.0</commons-text.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <commons-math3.version>3.6.1</commons-math3.version>
+        <commons-numbers-bom.version>1.1</commons-numbers-bom.version>
+        <commons-configuration.version>1.6</commons-configuration.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-logging.version>1.3.2</commons-logging.version>
+        <commons-compress.version>1.26.1</commons-compress.version>
+
+        <poi-ooxml.version>5.3.0</poi-ooxml.version>
+        <poi.version>5.3.0</poi.version>
+
+        <oshi-trove4j-core.version>6.6.1</oshi-trove4j-core.version>
+
         <!--  Gora Serialization  -->
         <!--
             Gora 0.8 supports:
@@ -1237,8 +1356,6 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <xerces.version>2.11.0</xerces.version>
         <nekohtml.version>1.9.22</nekohtml.version>
         <tika.version>2.9.0</tika.version>
-        <!-- lucene -->
-        <lucene.version>8.1.1</lucene.version>
 
         <!--  default version does not support java11,
             see https://github.com/yandex-qatools/postgresql-embedded/issues/153
@@ -1280,20 +1397,9 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <spring.version>6.1.10</spring.version>
 
         <spring-data.version>2024.0.2</spring-data.version>
-        <!--
-        Notice: induce a lot of dependencies:
-        1. spring-core, spring-beans, spring-context, spring-expression, etc.
-        2. [optional] mongodb-driver-sync
-        3. [optional] kotlin-stdlib, kotlin-reflect, kotlinx-coroutines-core, kotlinx-coroutines-reactor, etc.
-        4. [optional] reactor-core, reactor-extra, etc.
-        5. [optional] jackson-databind
-        6. [optional] others
-        see https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb/4.3.1
-        -->
-        <spring-data-mongodb.version>4.3.1</spring-data-mongodb.version>
 
         <!-- Web server -->
-        <httpcore.version>4.4.15</httpcore.version>
+        <httptrove4j-core.version>4.4.15</httptrove4j-core.version>
         <httpclient.version>4.5.13</httpclient.version>
         <!-- Java Servlet is the foundation web specification in the Java Enterprise Platform. Developers can build
         web applications using the Servlet API to interact with the request/response workflow. -->
@@ -1306,17 +1412,6 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <websocket.api.version>1.1</websocket.api.version>
         <!-- org.glassfish.tyrus, required by pulsar-browser -->
         <tyrus.version>1.13.1</tyrus.version>
-
-        <commons-lang.version>2.6</commons-lang.version>
-        <commons-io.version>2.11.0</commons-io.version>
-        <commons-codec.version>1.15</commons-codec.version>
-        <commons-text.version>1.11.0</commons-text.version>
-        <commons-lang3.version>3.12.0</commons-lang3.version>
-        <commons-math3.version>3.3</commons-math3.version>
-        <commons-configuration.version>1.6</commons-configuration.version>
-        <commons-collections.version>3.2.2</commons-collections.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
-        <commons-logging.version>1.2</commons-logging.version>
 
         <xml-apis.version>1.3.04</xml-apis.version>
         <oro.version>2.0.8</oro.version>
@@ -1336,6 +1431,14 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <jackson.version>2.17.2</jackson.version>
         <dataframe.version>0.13.1</dataframe.version>
         <jgrapht.version>1.0.1</jgrapht.version>
+
+        <!-- ML -->
+        <smile.version>3.1.1</smile.version>
+        <pmml.version>1.6.4</pmml.version>
+
+        <!-- NLP -->
+        <!-- TODO: figure out the reason why we need to override the default 8.1.1, seems it's caused by a dependency issue -->
+        <lucene.version>7.3.1</lucene.version>
 
         <!-- AI -->
         <langchain4j.version>0.33.0</langchain4j.version>
@@ -1358,7 +1461,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <org.hamcrest.version>1.3</org.hamcrest.version>
         <!-- Mockito is a popular and widely-used mocking framework for unit testing in Java. -->
-        <mockito-core.version>2.21.0</mockito-core.version>
+        <mockito.version>5.12.0</mockito.version>
         <!-- MockK is a powerful and flexible mocking library designed specifically for Kotlin. -->
         <mockk.version>1.13.8</mockk.version>
         <junit5.version>5.10.3</junit5.version>
