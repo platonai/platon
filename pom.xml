@@ -1179,6 +1179,11 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
@@ -1313,7 +1318,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
 
         <!-- Apache common libraries -->
         <commons-lang.version>2.6</commons-lang.version>
-        <commons-io.version>2.11.0</commons-io.version>
+        <commons-io.version>2.16.1</commons-io.version>
         <commons-codec.version>1.17.0</commons-codec.version>
         <commons-text.version>1.11.0</commons-text.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
@@ -1323,7 +1328,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <commons-collections.version>3.2.2</commons-collections.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-logging.version>1.3.2</commons-logging.version>
-        <commons-compress.version>1.26.1</commons-compress.version>
+        <commons-compress.version>1.26.2</commons-compress.version>
 
         <poi-ooxml.version>5.3.0</poi-ooxml.version>
         <poi.version>5.3.0</poi.version>
@@ -1449,12 +1454,11 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!--  Logging And Testing Dependencies, always keep consistent with spring-boot-starter-logging -->
         <slf4j.version>2.0.13</slf4j.version>
         <logback.version>1.5.6</logback.version>
-        <log4j2.version>2.23.1</log4j2.version>
-
-        <!--  Logging, metrics analyze  -->
-        <log4j.version>2.17.2</log4j.version>
-        <oshi.version>6.4.13</oshi.version>
+        <log4j.version>2.23.1</log4j.version>
         <perf4j.version>0.9.16</perf4j.version>
+
+        <!--  metrics analyze  -->
+        <oshi.version>6.4.13</oshi.version>
         <metrics.version>4.2.12</metrics.version>
 
         <!--  Matchers that can be combined to create flexible expressions of intent  -->
