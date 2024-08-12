@@ -1351,9 +1351,9 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
 
             See more at: http://gora.apache.org/
           -->
-        <gora.version>0.8</gora.version>
-        <!-- Required by gora-0.8 -->
-        <avro.version>1.8.1</avro.version>
+        <gora.version>0.9</gora.version>
+        <!-- Required by gora-0.9 -->
+        <avro.version>1.8.2</avro.version>
         <!-- 2.5.2 suggested, but 2.7.2 is a correct version, we will consider using a shaded gora -->
         <hadoop.version>2.7.2</hadoop.version>
 
