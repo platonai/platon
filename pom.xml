@@ -34,7 +34,7 @@
         </license>
     </licenses>
     <organization>
-        <name>The Platon Data Engine</name>
+        <name>The Platon AI Web Data Engine</name>
         <url>http://platon.ai</url>
     </organization>
     <developers>
@@ -1225,7 +1225,6 @@
                 <artifactId>pulsar-jsoup</artifactId>
                 <version>${pulsar-jsoup.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -1473,6 +1472,5 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!-- Pulsar dependency -->
         <pulsar-h2.version>1.4.196</pulsar-h2.version>
         <pulsar-jsoup.version>1.14.3</pulsar-jsoup.version>
-        <gora-shaded-mongodb.version>0.9</gora-shaded-mongodb.version>
     </properties>
 </project>
