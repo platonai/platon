@@ -630,17 +630,6 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <dependency>
-                <groupId>org.apache.gora</groupId>
-                <artifactId>gora-core</artifactId>
-                <version>${gora.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
             <!--  Solr  -->
             <dependency>
                 <groupId>org.apache.solr</groupId>
