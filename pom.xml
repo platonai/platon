@@ -944,11 +944,25 @@
                 <groupId>com.github.haifengl</groupId>
                 <artifactId>smile-base</artifactId>
                 <version>${smile.version}</version>
+                <!-- exclude slf4j -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.github.haifengl</groupId>
                 <artifactId>smile-core</artifactId>
                 <version>${smile.version}</version>
+                <!-- exclude slf4j -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.github.haifengl</groupId>
