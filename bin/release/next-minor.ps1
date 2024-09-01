@@ -5,8 +5,6 @@ while ($AppHome -ne $null -and !(Test-Path "$AppHome/VERSION")) {
 }
 cd $AppHome
 
-$GIT = "git" # Assuming git is in the system PATH
-
 # Get version information
 $SNAPSHOT_VERSION = Get-Content "$AppHome\VERSION" -TotalCount 1
 $VERSION = $SNAPSHOT_VERSION -replace "-SNAPSHOT", ""
@@ -28,6 +26,11 @@ $NEXT_SNAPSHOT_VERSION | Set-Content "$AppHome\VERSION"
 $pomXmlPath = "$AppHome\pom.xml"
 ((Get-Content $pomXmlPath) -replace "<tag>v$VERSION</tag>", "<tag>v$NEXT_VERSION</tag>") | Set-Content $pomXmlPath
 
+# Update pom.xml files
+Get-ChildItem "$AppHome" -Depth 3 -Filter 'pom.xml' -Recurse | ForEach-Object {
+  ((Get-Content $_.FullName) -replace $SNAPSHOT_VERSION, $NEXT_SNAPSHOT_VERSION) | Set-Content $_.FullName
+}
+
 # Commit comment
 $COMMENT =$NEXT_SNAPSHOT_VERSION -replace "-SNAPSHOT", ""
 
@@ -35,7 +38,7 @@ $COMMENT =$NEXT_SNAPSHOT_VERSION -replace "-SNAPSHOT", ""
 Write-Host "Ready to commit with comment: <$COMMENT>"
 $confirm = Read-Host -Prompt "Are you sure to continue? [Y/n]"
 if ($confirm -eq 'Y') {
-  & $GIT add .
-  & $GIT commit -m "$COMMENT"
-  & $GIT push
+  git add .
+  git commit -m "$COMMENT"
+  git push
 }

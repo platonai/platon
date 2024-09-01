@@ -5,11 +5,11 @@ while ($AppHome -ne $null -and !(Test-Path "$AppHome/VERSION")) {
 }
 cd $AppHome
 
+# Maven command and options
+$MvnCmd = Join-Path $AppHome '.\mvnw.cmd'
+
 Write-Host "Deploy the project ..."
 Write-Host "Changing version ..."
-
-# Maven command and options
-$MVNW = Join-Path $AppHome '.\mvnw.cmd'
 
 $SNAPSHOT_VERSION = Get-Content "$AppHome\VERSION" -TotalCount 1
 $VERSION =$SNAPSHOT_VERSION -replace "-SNAPSHOT", ""
@@ -19,8 +19,8 @@ Get-ChildItem -Path "$AppHome" -Depth 2 -Filter 'pom.xml' -Recurse | ForEach-Obj
   (Get-Content $_.FullName) -replace $SNAPSHOT_VERSION, $VERSION | Set-Content $_.FullName
 }
 
-& $MVNW clean
-& $MVNW deploy
+& $MvnCmd clean
+& $MvnCmd deploy -Pplaton-release
 
 $exitCode =$LastExitCode
 if ($exitCode -eq 0) {
