@@ -1,23 +1,26 @@
-$MAVEN_HOME = "D:\Program Files\maven\apache-maven-3.8.8"
-$MVN = Join-Path $MAVEN_HOME "bin\mvn.cmd"
+# Find the first parent directory containing the VERSION file
+$AppHome=(Get-Item -Path $MyInvocation.MyCommand.Path).Directory
+while ($AppHome -ne $null -and !(Test-Path "$AppHome/VERSION")) {
+  $AppHome=$AppHome.Parent
+}
+cd $AppHome
 
-$bin = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$bin = (Resolve-Path "$bin\..").Path
-$APP_HOME = (Resolve-Path "$bin\..").Path
+# Maven command and options
+$MvnCmd = Join-Path $AppHome '.\mvnw.cmd'
 
 Write-Host "Deploy the project ..."
 Write-Host "Changing version ..."
 
-$SNAPSHOT_VERSION = Get-Content "$APP_HOME\VERSION" -TotalCount 1
+$SNAPSHOT_VERSION = Get-Content "$AppHome\VERSION" -TotalCount 1
 $VERSION =$SNAPSHOT_VERSION -replace "-SNAPSHOT", ""
-$VERSION | Set-Content "$APP_HOME\VERSION"
+$VERSION | Set-Content "$AppHome\VERSION"
 
-Get-ChildItem -Path "$APP_HOME" -Depth 2 -Filter 'pom.xml' -Recurse | ForEach-Object {
+Get-ChildItem -Path "$AppHome" -Depth 2 -Filter 'pom.xml' -Recurse | ForEach-Object {
   (Get-Content $_.FullName) -replace $SNAPSHOT_VERSION, $VERSION | Set-Content $_.FullName
 }
 
-& $MVN clean
-& $MVN
+& $MvnCmd clean
+& $MvnCmd deploy -Pplaton-release
 
 $exitCode =$LastExitCode
 if ($exitCode -eq 0) {
