@@ -17,7 +17,7 @@
     <groupId>ai.platon</groupId>
     <artifactId>platon</artifactId>
     <name>Platon</name>
-    <version>4.0.1-SNAPSHOT</version>
+    <version>4.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>
@@ -53,7 +53,7 @@
         <connection>scm:git:https://github.com/platonai/platon.git</connection>
         <developerConnection>scm:git:https://github.com/platonai/platon.git</developerConnection>
         <url>https://github.com/platonai/platon.git</url>
-        <tag>v4.0.1-SNAPSHOT</tag>
+        <tag>v4.0.2-SNAPSHOT</tag>
     </scm>
 
     <distributionManagement>
