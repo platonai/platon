@@ -1392,7 +1392,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!--  default version does not support java11,
             see https://github.com/yandex-qatools/postgresql-embedded/issues/153
         -->
-        <mysql.driver.version>8.0.23</mysql.driver.version>
+        <mysql.driver.version>8.0.28</mysql.driver.version>
         <!--  Search Engine  -->
         <!-- deprecated -->
         <solr.version>6.1.0</solr.version>
