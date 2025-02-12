@@ -766,6 +766,7 @@
             </dependency>
             <!--  Spring  -->
             <!--  https://mvnrepository.com/artifact/org.springframework/spring-core  -->
+            <!-- TODO: use spring-boot-dependencies instead -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
@@ -1424,6 +1425,7 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         Upgrade spring-boot from 2.7.18 to 3.3.1, for the reasons:
         1. GraalVM Native Images support, see https://docs.spring.io/spring-boot/reference/packaging/native-image/index.html
          -->
+        <!-- TODO: use spring-boot-dependencies instead -->
         <spring-boot.version>3.3.1</spring-boot.version>
         <!-- Use the one induced by spring-boot -->
         <spring.version>6.1.10</spring.version>
