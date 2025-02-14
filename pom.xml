@@ -639,58 +639,6 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <!--  Solr  -->
-            <dependency>
-                <groupId>org.apache.solr</groupId>
-                <artifactId>solr-solrj</artifactId>
-                <version>${solr.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <!--  Selenium  -->
-
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-java</artifactId>
-                <version>${selenium.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>selenium-ie-driver</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>selenium-edge-driver</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>selenium-firefox-driver</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>selenium-opera-driver</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>selenium-safari-driver</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>htmlunit-driver</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <!--  conflict with hibernate
-                        org.hibernate.bytecode.internal.bytebuddy.ByteBuddyState.resolveClassLoadingStrategy(ByteBuddyState.java:229)
-                         -->
-                        <groupId>net.bytebuddy</groupId>
-                        <artifactId>byte-buddy</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
 
             <!-- TODO: This artifact was moved to: jakarta.servlet » jakarta.servlet-api -->
             <dependency>
@@ -803,20 +751,20 @@
             </dependency>
 
             <!--  Apache commons  -->
-            <!-- provided by spring-boot-dependencies -->
+            <!-- managed by spring-boot-dependencies -->
 <!--            <dependency>-->
 <!--                <groupId>commons-codec</groupId>-->
 <!--                <artifactId>commons-codec</artifactId>-->
 <!--                <version>${commons-codec.version}</version>-->
 <!--            </dependency>-->
             <!--  Utility dependencies  -->
-            <!-- provided by spring-boot-dependencies -->
+            <!-- managed by spring-boot-dependencies -->
 <!--            <dependency>-->
 <!--                <groupId>commons-lang</groupId>-->
 <!--                <artifactId>commons-lang</artifactId>-->
 <!--                <version>${commons-lang.version}</version>-->
 <!--            </dependency>-->
-            <!-- provided by spring-boot-dependencies -->
+            <!-- managed by spring-boot-dependencies -->
 <!--            <dependency>-->
 <!--                <groupId>org.apache.commons</groupId>-->
 <!--                <artifactId>commons-lang3</artifactId>-->
@@ -951,7 +899,7 @@
                 <version>${pmml.version}</version>
             </dependency>
 
-            <!-- provided by spring-boot-dependencies -->
+            <!-- managed by spring-boot-dependencies -->
 <!--            <dependency>-->
 <!--                <groupId>com.fasterxml.jackson</groupId>-->
 <!--                <artifactId>jackson-bom</artifactId>-->
@@ -970,7 +918,7 @@
                 <version>${guava.version}</version>
             </dependency>
 
-            <!-- provided by spring-boot-dependencies -->
+            <!-- managed by spring-boot-dependencies -->
 <!--            <dependency>-->
 <!--                <groupId>com.google.code.gson</groupId>-->
 <!--                <artifactId>gson</artifactId>-->
@@ -1159,12 +1107,13 @@
                 <scope>import</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>${mockito.version}</version>
-                <scope>test</scope>
-            </dependency>
+            <!-- managed by spring-boot-dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>org.mockito</groupId>-->
+<!--                <artifactId>mockito-core</artifactId>-->
+<!--                <version>${mockito.version}</version>-->
+<!--                <scope>test</scope>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.mockito.kotlin</groupId>
                 <artifactId>mockito-kotlin</artifactId>
@@ -1285,12 +1234,12 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <dokka.version>1.9.10</dokka.version>
 
         <!-- Apache common libraries -->
-        <!-- provided by spring-boot-dependencies -->
+        <!-- managed by spring-boot-dependencies -->
 <!--        <commons-lang.version>2.6</commons-lang.version>-->
         <commons-io.version>2.16.1</commons-io.version>
         <commons-codec.version>1.17.0</commons-codec.version>
         <commons-text.version>1.11.0</commons-text.version>
-        <!-- provided by spring-boot-dependencies -->
+        <!-- managed by spring-boot-dependencies -->
 <!--        <commons-lang3.version>3.12.0</commons-lang3.version>-->
         <commons-math3.version>3.6.1</commons-math3.version>
         <commons-numbers-bom.version>1.1</commons-numbers-bom.version>
@@ -1340,19 +1289,13 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <nekohtml.version>1.9.22</nekohtml.version>
         <tika.version>2.9.0</tika.version>
 
-        <!--  default version does not support java11,
-            see https://github.com/yandex-qatools/postgresql-embedded/issues/153
-        -->
-        <mysql.driver.version>8.0.23</mysql.driver.version>
-        <!--  Search Engine  -->
-        <!-- deprecated -->
-        <solr.version>6.1.0</solr.version>
+        <mysql.driver.version>8.0.33</mysql.driver.version>
 
         <!--  Persistence  -->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
         <hibernate.version>5.4.29.Final</hibernate.version>
         <!-- Required by hibernate, spring-boot-starter-test, correct the version -->
-        <!-- provided by spring-boot-dependencies -->
+        <!-- managed by spring-boot-dependencies -->
 <!--        <byte-buddy.version>1.14.18</byte-buddy.version>-->
         <!-- Spring  -->
         <!--
@@ -1400,8 +1343,6 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <EvalEx.version>2.0</EvalEx.version>
         <jsr305.version>3.0.0</jsr305.version>
         <jcommander.version>1.82</jcommander.version>
-        <!-- Reflect, org.javassist:javassist -->
-        <javassist.version>3.30.2-GA</javassist.version>
         <!-- Google core libraries for Java, include Multimaps, etc  -->
         <!-- guava-32.1.3-jre has compatibility problem with kotlin-1.9.20,
             kotlin contains the source code of com.google.common.collect.ImmutableMap,
@@ -1440,7 +1381,8 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <hamcrest-all.version>1.3</hamcrest-all.version>
         <org.hamcrest.version>1.3</org.hamcrest.version>
         <!-- Mockito is a popular and widely-used mocking framework for unit testing in Java. -->
-        <mockito.version>5.12.0</mockito.version>
+        <!-- managed by spring-boot-dependencies -->
+<!--        <mockito.version>5.12.0</mockito.version>-->
         <mockito-kotlin.version>5.4.0</mockito-kotlin.version>
         <!-- MockK is a powerful and flexible mocking library designed specifically for Kotlin. -->
         <mockk.version>1.13.12</mockk.version>
