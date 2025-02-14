@@ -192,7 +192,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>${maven-exec-plugin.version}</version>
+                    <version>${version.maven-exec-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
@@ -394,6 +394,13 @@
                 <!-- The above are copied from apache-30.pom -->
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <profiles>
@@ -766,7 +773,6 @@
             </dependency>
             <!--  Spring  -->
             <!--  https://mvnrepository.com/artifact/org.springframework/spring-core  -->
-            <!-- TODO: use spring-boot-dependencies instead -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
@@ -783,68 +789,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.springframework.session</groupId>
-                <artifactId>spring-session-core</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-devtools</artifactId>
-                <version>${spring-boot.version}</version>
-                <scope>runtime</scope>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-autoconfigure</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-jpa</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-tomcat</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-mustache</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-mongodb</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-test</artifactId>
-                <version>${spring-boot.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot.version}</version>
-                <scope>test</scope>
             </dependency>
 
             <dependency>
@@ -856,17 +803,25 @@
             </dependency>
 
             <!--  Apache commons  -->
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${commons-codec.version}</version>
-            </dependency>
+            <!-- provided by spring-boot-dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>commons-codec</groupId>-->
+<!--                <artifactId>commons-codec</artifactId>-->
+<!--                <version>${commons-codec.version}</version>-->
+<!--            </dependency>-->
             <!--  Utility dependencies  -->
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons-lang.version}</version>
-            </dependency>
+            <!-- provided by spring-boot-dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>commons-lang</groupId>-->
+<!--                <artifactId>commons-lang</artifactId>-->
+<!--                <version>${commons-lang.version}</version>-->
+<!--            </dependency>-->
+            <!-- provided by spring-boot-dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.commons</groupId>-->
+<!--                <artifactId>commons-lang3</artifactId>-->
+<!--                <version>${commons-lang3.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -876,11 +831,6 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-text</artifactId>
                 <version>${commons-text.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -915,6 +865,7 @@
                 <version>${commons-compress.version}</version>
             </dependency>
 
+            <!-- Spreadsheet, CSV, etc -->
             <dependency>
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi</artifactId>
@@ -1000,15 +951,14 @@
                 <version>${pmml.version}</version>
             </dependency>
 
-
-
-            <dependency>
-                <groupId>com.fasterxml.jackson</groupId>
-                <artifactId>jackson-bom</artifactId>
-                <version>${jackson.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+            <!-- provided by spring-boot-dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>com.fasterxml.jackson</groupId>-->
+<!--                <artifactId>jackson-bom</artifactId>-->
+<!--                <version>${jackson-bom.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>xml-apis</groupId>
                 <artifactId>xml-apis</artifactId>
@@ -1019,11 +969,14 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>${gson.version}</version>
-            </dependency>
+
+            <!-- provided by spring-boot-dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>com.google.code.gson</groupId>-->
+<!--                <artifactId>gson</artifactId>-->
+<!--                <version>${gson.version}</version>-->
+<!--            </dependency>-->
+
             <dependency>
                 <groupId>org.jetbrains.kotlinx</groupId>
                 <artifactId>dataframe-core</artifactId>
@@ -1063,16 +1016,7 @@
                 <artifactId>javax.websocket-api</artifactId>
                 <version>${websocket.api.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.glassfish.tyrus</groupId>
-                <artifactId>tyrus-container-grizzly-client</artifactId>
-                <version>${tyrus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.tyrus</groupId>
-                <artifactId>tyrus-container-jdk-client</artifactId>
-                <version>${tyrus.version}</version>
-            </dependency>
+
             <!--  NLP  -->
             <dependency>
                 <groupId>org.apache.lucene</groupId>
@@ -1166,6 +1110,8 @@
                 <version>${metrics.version}</version>
             </dependency>
 
+
+            <!-- TODO: provided by spring-boot-dependencies -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-bom</artifactId>
@@ -1264,14 +1210,6 @@
         <!-- The following are copied from apache-30.pom -->
         <!-- set versions of common plugins for reproducibility, ordered alphabetically -->
         <!-- 1.6.7 -> 1.7.0 -->
-        <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
-        <xercesImpl.version>2.12.2</xercesImpl.version>
-        <trove4j-core.version>3.0.3</trove4j-core.version>
-        <icu4j.version>75.1</icu4j.version>
-        <trove4j.version>3.0.3</trove4j.version>
-        <jodd-trove4j-core.version>3.5.2</jodd-trove4j-core.version>
-
-        <kotlin-statistics.version>1.2.1</kotlin-statistics.version>
         <distMgmtReleasesName>Apache Release Distribution Repository</distMgmtReleasesName>
         <distMgmtReleasesUrl>https://repository.apache.org/service/local/staging/deploy/maven2</distMgmtReleasesUrl>
         <distMgmtSnapshotsName>Apache Development Snapshot Repository</distMgmtSnapshotsName>
@@ -1327,6 +1265,9 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!-- End apache-30              -->
         <!-- .......................... -->
 
+        <version.maven-exec-plugin>3.5.0</version.maven-exec-plugin>
+        <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
+
         <!--  Java  -->
         <javac.src.version>17</javac.src.version>
         <javac.target.version>17</javac.target.version>
@@ -1336,20 +1277,21 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!-- Target version of the generated JVM bytecode, 1.8, 9, 10, ..., 21, default 1.8 -->
         <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
 
-        <kotlin.version>1.9.24</kotlin.version>
-<!--        <kotlin.version>2.0.10</kotlin.version>-->
+        <kotlin.version>1.9.25</kotlin.version>
+<!--        <kotlin.version>2.0.21</kotlin.version>-->
         <kotlin.coroutine.version>1.8.1</kotlin.coroutine.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
         <dokka.version>1.9.10</dokka.version>
 
-
         <!-- Apache common libraries -->
-        <commons-lang.version>2.6</commons-lang.version>
+        <!-- provided by spring-boot-dependencies -->
+<!--        <commons-lang.version>2.6</commons-lang.version>-->
         <commons-io.version>2.16.1</commons-io.version>
         <commons-codec.version>1.17.0</commons-codec.version>
         <commons-text.version>1.11.0</commons-text.version>
-        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <!-- provided by spring-boot-dependencies -->
+<!--        <commons-lang3.version>3.12.0</commons-lang3.version>-->
         <commons-math3.version>3.6.1</commons-math3.version>
         <commons-numbers-bom.version>1.1</commons-numbers-bom.version>
         <commons-configuration.version>1.6</commons-configuration.version>
@@ -1362,6 +1304,14 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <poi.version>5.3.0</poi.version>
 
         <oshi-trove4j-core.version>6.6.1</oshi-trove4j-core.version>
+
+        <xercesImpl.version>2.12.2</xercesImpl.version>
+        <trove4j-core.version>3.0.3</trove4j-core.version>
+        <icu4j.version>75.1</icu4j.version>
+        <trove4j.version>3.0.3</trove4j.version>
+        <jodd-trove4j-core.version>3.5.2</jodd-trove4j-core.version>
+
+        <kotlin-statistics.version>1.2.1</kotlin-statistics.version>
 
         <!--  Gora Serialization  -->
         <!--
@@ -1397,12 +1347,13 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <!--  Search Engine  -->
         <!-- deprecated -->
         <solr.version>6.1.0</solr.version>
-        <selenium.version>4.11.0</selenium.version>
+
         <!--  Persistence  -->
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
         <hibernate.version>5.4.29.Final</hibernate.version>
         <!-- Required by hibernate, spring-boot-starter-test, correct the version -->
-        <byte-buddy.version>1.14.18</byte-buddy.version>
+        <!-- provided by spring-boot-dependencies -->
+<!--        <byte-buddy.version>1.14.18</byte-buddy.version>-->
         <!-- Spring  -->
         <!--
             Spring Framework Versions (2023.08.06):
@@ -1425,10 +1376,9 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         Upgrade spring-boot from 2.7.18 to 3.3.1, for the reasons:
         1. GraalVM Native Images support, see https://docs.spring.io/spring-boot/reference/packaging/native-image/index.html
          -->
-        <!-- TODO: use spring-boot-dependencies instead -->
-        <spring-boot.version>3.3.1</spring-boot.version>
+        <spring-boot.version>3.3.8</spring-boot.version>
         <!-- Use the one induced by spring-boot -->
-        <spring.version>6.1.10</spring.version>
+        <spring.version>6.1.16</spring.version>
 
         <spring-data.version>2024.0.2</spring-data.version>
 
@@ -1444,8 +1394,6 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         <netty.version>4.1.111.Final</netty.version>
         <!-- required by pulsar-browser -->
         <websocket.api.version>1.1</websocket.api.version>
-        <!-- org.glassfish.tyrus, required by pulsar-browser -->
-        <tyrus.version>1.13.1</tyrus.version>
 
         <xml-apis.version>1.3.04</xml-apis.version>
         <oro.version>2.0.8</oro.version>
@@ -1461,8 +1409,6 @@ testing frameworks such as JUnit (including JUnit 5), TestNG, and more. -->
         -->
         <!-- <guava.version>32.1.3-jre</guava.version>-->
         <guava.version>33.2.1-jre</guava.version>
-        <gson.version>2.10.1</gson.version>
-        <jackson.version>2.17.2</jackson.version>
         <dataframe.version>0.13.1</dataframe.version>
         <jgrapht.version>1.0.1</jgrapht.version>
 
