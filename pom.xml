@@ -21,8 +21,8 @@
     <packaging>pom</packaging>
 
     <description>
-        This is the Platon AI parent project, which manages the majority of the common dependencies for all subprojects.
-        It ensures consistency and ease of maintenance across the project ecosystem.
+        The Platon AI parent project serves as the central hub for managing shared dependencies across all subprojects.
+        It guarantees dependency consistency and simplifies maintenance throughout the project ecosystem.
     </description>
 
     <url>http://platon.ai</url>
