@@ -627,6 +627,13 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <!--
+            [WARNING] The artifact
+            mysql:mysql-connector-java:jar:8.0.33
+            has been relocated to
+            com.mysql:mysql-connector-j:jar:8.0.33:
+            MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+            -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
